@@ -4,8 +4,42 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0e5098b282cc2d222ea1f49f37e6b70e",
+    "hash": "c97a9a1fbcd3dae2607b31c1e9eec4ed",
     "packages": [
+        {
+            "name": "kore/data-object",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kore/DataObject.git",
+                "reference": "f076476412f740dc439f6584c83dd3cf78e3032c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kore/DataObject/zipball/f076476412f740dc439f6584c83dd3cf78e3032c",
+                "reference": "f076476412f740dc439f6584c83dd3cf78e3032c",
+                "shasum": ""
+            },
+            "require-dev": {
+                "pdepend/pdepend": "@stable",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "@stable",
+                "sebastian/phpcpd": "@stable",
+                "squizlabs/php_codesniffer": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kore": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Simple base class for data objects.",
+            "time": "2014-06-14 10:48:42"
+        },
         {
             "name": "phuedx/tnetstring",
             "version": "dev-master",
@@ -1590,6 +1624,7 @@
     "stability-flags": {
         "symfony/http-kernel": 0,
         "phuedx/tnetstring": 20,
+        "kore/data-object": 0,
         "pdepend/pdepend": 0,
         "phpmd/phpmd": 0,
         "phpunit/phpunit": 0,

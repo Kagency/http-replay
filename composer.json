@@ -15,7 +15,8 @@
     },
     "require":      {
         "symfony/http-kernel": "@stable",
-        "phuedx/tnetstring": "@dev"
+        "phuedx/tnetstring": "@dev",
+        "kore/data-object": "@stable"
     },
     "require-dev": {
         "pdepend/pdepend": "@stable",
