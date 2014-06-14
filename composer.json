@@ -1,0 +1,27 @@
+{
+    "name":         "kagency/http-replay",
+    "description":  "Library to replay and compare HTTP requets and responses",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/phuedx/tnetstring.git"
+        }
+
+    ],
+    "autoload": {
+        "psr-0": {
+            "Kagency": "src/"
+        }
+    },
+    "require":      {
+        "symfony/http-kernel": "@stable",
+        "phuedx/tnetstring": "@dev"
+    },
+    "require-dev": {
+        "pdepend/pdepend": "@stable",
+        "phpmd/phpmd": "@stable",
+        "phpunit/phpunit": "@stable",
+        "sebastian/phpcpd": "@stable",
+        "squizlabs/php_codesniffer": "@stable"
+    }
+}
