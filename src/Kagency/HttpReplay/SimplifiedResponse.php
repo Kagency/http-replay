@@ -18,7 +18,7 @@ class SimplifiedResponse extends DataObject
      *
      * @var array
      */
-    public $header = array();
+    public $headers = array();
 
     /**
      * Content
