@@ -7,6 +7,13 @@ use Kore\DataObject\DataObject;
 class SimplifiedResponse extends DataObject
 {
     /**
+     * Request path
+     *
+     * @var string
+     */
+    public $path;
+
+    /**
      * Status code
      *
      * @var int
@@ -30,13 +37,15 @@ class SimplifiedResponse extends DataObject
     /**
      * __construct
      *
+     * @param string $path
      * @param int $status
      * @param array $headers
      * @param mixed $content
      * @return void
      */
-    public function __construct($status, array $headers, $content)
+    public function __construct($path, $status, array $headers, $content)
     {
+        $this->path = $path;
         $this->status = $status;
         $this->headers = $headers;
         $this->content = $content;

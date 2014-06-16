@@ -10,7 +10,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
     {
         $filter = new Dispatcher();
 
-        $response = new SimplifiedResponse(200, array(), null);
+        $response = new SimplifiedResponse('/', 200, array(), null);
         $originalResponse = clone $response;
         $filter->filterResponse($response);
 
@@ -22,7 +22,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
 
     public function testSingleAggregate()
     {
-        $response = new SimplifiedResponse(200, array(), null);
+        $response = new SimplifiedResponse('/', 200, array(), null);
 
         $aggregateFilter = $this->getMock('\\Kagency\\HttpReplay\\ResponseFilter');
         $aggregateFilter
@@ -36,7 +36,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
 
     public function testMultipleAggregates()
     {
-        $response = new SimplifiedResponse(200, array(), null);
+        $response = new SimplifiedResponse('/', 200, array(), null);
 
         $aggregateFilter = $this->getMock('\\Kagency\\HttpReplay\\ResponseFilter');
         $aggregateFilter

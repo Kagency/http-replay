@@ -11,6 +11,7 @@ class HeadersTest extends \PHPUnit_Framework_TestCase
         $filter = new Headers();
 
         $response = new SimplifiedResponse(
+            '/',
             200,
             array(
                 'foo' => 'bar',
@@ -32,6 +33,7 @@ class HeadersTest extends \PHPUnit_Framework_TestCase
         $filter = new Headers(array('foo'));
 
         $response = new SimplifiedResponse(
+            '/',
             200,
             array(
                 'foo' => 'bar',
@@ -54,6 +56,7 @@ class HeadersTest extends \PHPUnit_Framework_TestCase
         $filter = new Headers(array('Foo'));
 
         $response = new SimplifiedResponse(
+            '/',
             200,
             array(
                 'foo' => 'bar',
