@@ -30,6 +30,21 @@ class JsonTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testJsonObject()
+    {
+        $response = new SimplifiedResponse('/', 200, array('content-type' => 'application/json'), '{"foo": 42}');
+
+        $filter = new Json();
+        $filter->filterResponse($response);
+
+        $this->assertEquals(
+            array(
+                'foo' => 42,
+            ),
+            $response->content
+        );
+    }
+
     public function testNoJson()
     {
         $response = new SimplifiedResponse('/', 200, array(), '[]');
