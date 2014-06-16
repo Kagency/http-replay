@@ -2,6 +2,7 @@
 
 namespace Kagency\HttpReplay;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ResponseSimplifier
@@ -12,9 +13,10 @@ class ResponseSimplifier
      * @param Response $response
      * @return SimplifiedResponse
      */
-    public function simplifyResponse(Response $response)
+    public function simplifyResponse(Request $request, Response $response)
     {
         return new SimplifiedResponse(
+            $request->getPathInfo(),
             $response->getStatusCode(),
             array_map(
                 function ($value) {

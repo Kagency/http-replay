@@ -2,6 +2,7 @@
 
 namespace Kagency\HttpReplay;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ResponseSimplifierTest extends \PHPUnit_Framework_TestCase
@@ -12,6 +13,7 @@ class ResponseSimplifierTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             new SimplifiedResponse(
+                '/path',
                 200,
                 array(
                     'header' => 'Value',
@@ -21,6 +23,9 @@ class ResponseSimplifierTest extends \PHPUnit_Framework_TestCase
                 'content'
             ),
             $simplifier->simplifyResponse(
+                Request::create(
+                    '/path'
+                ),
                 Response::create(
                     'content',
                     200,
