@@ -93,4 +93,30 @@ class Symfony2Test extends \PHPUnit_Framework_TestCase
             )
         );
     }
+
+    /**
+     * @expectedException UnexpectedValueException
+     */
+    public function testFailSimplifyInvalidRequest()
+    {
+        $messageHandler = new Symfony2();
+
+        $messageHandler->simplifyResponse(
+            new \StdClass(),
+            Response::create()
+        );
+    }
+
+    /**
+     * @expectedException UnexpectedValueException
+     */
+    public function testFailSimplifyInvalidResponse()
+    {
+        $messageHandler = new Symfony2();
+
+        $messageHandler->simplifyResponse(
+            Request::create('/'),
+            new \StdClass()
+        );
+    }
 }
