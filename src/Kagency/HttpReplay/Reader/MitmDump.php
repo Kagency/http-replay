@@ -3,7 +3,10 @@
 namespace Kagency\HttpReplay\Reader;
 
 use Kagency\HttpReplay\Reader;
+use Kagency\HttpReplay\MessageHandler;
 use Kagency\HttpReplay\Interaction;
+use Kagency\HttpReplay\SimplifiedRequest;
+use Kagency\HttpReplay\SimplifiedResponse;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

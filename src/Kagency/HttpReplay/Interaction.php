@@ -4,33 +4,30 @@ namespace Kagency\HttpReplay;
 
 use Kore\DataObject\DataObject;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-
 class Interaction extends DataObject
 {
     /**
      * Recorded request
      *
-     * @var Request
+     * @var mixed
      */
     public $request;
 
     /**
      * Recorded response
      *
-     * @var Response
+     * @var mixed
      */
     public $response;
 
     /**
      * __construct
      *
-     * @param Request $request
-     * @param Response $response
+     * @param mixed $request
+     * @param mixed $response
      * @return void
      */
-    public function __construct(Request $request, Response $response)
+    public function __construct($request, $response)
     {
         $this->request = $request;
         $this->response = $response;
