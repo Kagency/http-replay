@@ -18,13 +18,21 @@ class MitmDump extends Reader
     private $decoder;
 
     /**
+     * Message handler
+     *
+     * @var MessageHandler
+     */
+    private $messageHandler;
+
+    /**
      * __construct
      *
      * @param mixed \TNetstring_Decoder $decoder = null
      * @return void
      */
-    public function __construct(\TNetstring_Decoder $decoder = null)
+    public function __construct(MessageHandler $messageHandler, \TNetstring_Decoder $decoder = null)
     {
+        $this->messageHandler = $messageHandler;
         $this->decoder = $decoder ?: new \TNetstring_Decoder();
     }
 
@@ -39,19 +47,21 @@ class MitmDump extends Reader
         return array_map(
             function (array $interaction) {
                 return new Interaction(
-                    Request::create(
-                        $interaction['request']['path'],
-                        $interaction['request']['method'],
-                        array(),
-                        array(),
-                        array(),
-                        $this->mapHeaders($interaction['request']['headers']),
-                        $interaction['request']['content']
+                    $this->messageHandler->convertFromRequest(
+                        new SimplifiedRequest(
+                            $interaction['request']['method'],
+                            $interaction['request']['path'],
+                            $this->mapHeaders($interaction['request']['headers']),
+                            $interaction['request']['content']
+                        )
                     ),
-                    Response::create(
-                        $interaction['response']['content'],
-                        $interaction['response']['code'],
-                        $this->mapHeaders($interaction['response']['headers'], '')
+                    $this->messageHandler->convertFromResponse(
+                        new SimplifiedResponse(
+                            $interaction['request']['path'],
+                            $interaction['response']['code'],
+                            $this->mapHeaders($interaction['response']['headers']),
+                            $interaction['response']['content']
+                        )
                     )
                 );
             },
@@ -62,20 +72,20 @@ class MitmDump extends Reader
     /**
      * Map headers
      *
-     * Maps HTTP headers from the real names to the naems PHP would use in the
-     * SERVER array, so that Symfony2 can map them back.
+     * Map headers to a key values array. This ignores the seldom case of
+     * double headers for the sake of simplicity.
      *
      * @param array $headers
      * @return array
      */
-    protected function mapHeaders(array $headers, $prefix = 'HTTP_')
+    protected function mapHeaders(array $headers)
     {
-        $phpHeaders = array();
+        $mappedHeaders = array();
         foreach ($headers as $headerPair) {
             list($name, $value) = $headerPair;
-            $phpHeaders[$prefix . str_replace('-', '_', strtoupper($name))] = $value;
+            $mappedHeaders[strtolower($name)] = $value;
         }
 
-        return $phpHeaders;
+        return $mappedHeaders;
     }
 }
