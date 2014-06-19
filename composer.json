@@ -1,6 +1,7 @@
 {
     "name":         "kagency/http-replay",
     "description":  "Library to replay and compare HTTP requets and responses",
+    "license": "MIT",
     "repositories": [
         {
             "type": "vcs",
