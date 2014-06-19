@@ -29,7 +29,7 @@ Symfony2 stack – by implementing an integration test like this:
     $messageHandler = new MessageHandler\Symfony2();
     $filter = new ResponseFilter\Dispatcher(array(
         new ResponseFilter\Json(),
-        new ResponseFilter\Header(array(
+        new ResponseFilter\Headers(array(
             'date',
             'etag',
         )),
