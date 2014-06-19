@@ -68,26 +68,6 @@ class Symfony2 extends MessageHandler
     }
 
     /**
-     * Map headers
-     *
-     * Maps HTTP headers from the real names to the naems PHP would use in the
-     * SERVER array, so that Symfony2 can map them back.
-     *
-     * @param array $headers
-     * @return array
-     */
-    protected function mapHeaders(array $headers, $prefix = 'HTTP_')
-    {
-        $phpHeaders = array();
-        foreach ($headers as $headerPair) {
-            list($name, $value) = $headerPair;
-            $phpHeaders[$prefix . str_replace('-', '_', strtoupper($name))] = $value;
-        }
-
-        return $phpHeaders;
-    }
-
-    /**
      * Simplify response
      *
      * Return a simplified response for the given set of request and response.
