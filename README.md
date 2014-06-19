@@ -1,5 +1,7 @@
 # HTTP Replay Test Helper
 
+![Travis Build Status](https://travis-ci.org/Kagency/http-replay.svg "Travis Build Status")
+
 This is a libaray to replay requests and responses in tests. It allows to
 filter the responses to remove values, one does not want to assert on.
 
