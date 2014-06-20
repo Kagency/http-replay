@@ -51,9 +51,6 @@ class JsonFilterTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testFilterInvalidContent()
     {
         $filter = new JsonFilter(array('Foo'));
@@ -62,8 +59,13 @@ class JsonFilterTest extends \PHPUnit_Framework_TestCase
             '/',
             200,
             array(),
-            null
+            'untouched'
         );
         $filter->filterResponse($response);
+
+        $this->assertSame(
+            'untouched',
+            $response->content
+        );
     }
 }

@@ -42,7 +42,7 @@ class JsonFilter extends ResponseFilter
     public function filterResponse(SimplifiedResponse $response)
     {
         if (!is_array($response->content)) {
-            throw new \UnexpectedValueException("Expecting a parsed JSON response.");
+            return;
         }
 
         $response->content = array_diff_key(
