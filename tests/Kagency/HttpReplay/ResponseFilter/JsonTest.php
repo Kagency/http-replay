@@ -45,6 +45,19 @@ class JsonTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testEmptyJsonString()
+    {
+        $response = new SimplifiedResponse('/', 200, array('content-type' => 'application/json'), '');
+
+        $filter = new Json();
+        $filter->filterResponse($response);
+
+        $this->assertEquals(
+            null,
+            $response->content
+        );
+    }
+
     public function testNoJson()
     {
         $response = new SimplifiedResponse('/', 200, array(), '[]');

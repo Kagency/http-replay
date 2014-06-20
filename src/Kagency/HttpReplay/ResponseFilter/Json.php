@@ -17,10 +17,14 @@ class Json extends ResponseFilter
     {
         if (isset($response->headers['content-type']) &&
             ($response->headers['content-type'] === 'application/json')) {
-            $decoded = json_decode($response->content, true);
+            if ($response->content === "") {
+                $response->content = null;
+                return;
+            }
 
+            $decoded = json_decode($response->content, true);
             if ($decoded === null) {
-                throw new \UnexpectedValueException("Invalid JSON in JSON response.");
+                throw new \UnexpectedValueException("Invalid JSON in JSON response: $response->content");
             }
 
             $response->content = $decoded;
