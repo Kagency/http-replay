@@ -102,3 +102,15 @@ Takes to arguments:
 Only applies the aggregate filter, if the regular expression matches the
 requested path.
 
+## Verify the Build
+
+You can verify the build by running ant:
+
+    ant
+
+This installs all required tools using composer and then runs the tests and
+static source code verification. You might also run all the tools manually,
+like:
+
+    vendor/bin/phpunit
+
