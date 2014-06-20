@@ -37,12 +37,14 @@ class ConditionalPathRegexp extends ResponseFilter
      * Filter response
      *
      * @param SimplifiedResponse $response
-     * @return void
+     * @return SimplifiedResponse
      */
     public function filterResponse(SimplifiedResponse $response)
     {
         if (preg_match($this->regularExpression, $response->path)) {
             $this->aggregate->filterResponse($response);
         }
+
+        return $response;
     }
 }

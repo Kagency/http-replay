@@ -8,7 +8,7 @@ abstract class ResponseFilter
      * Filter response
      *
      * @param SimplifiedResponse $response
-     * @return void
+     * @return SimplifiedResponse
      */
     abstract public function filterResponse(SimplifiedResponse $response);
 }

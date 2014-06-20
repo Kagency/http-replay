@@ -29,7 +29,7 @@ class Headers extends ResponseFilter
      * Filter response
      *
      * @param SimplifiedResponse $response
-     * @return void
+     * @return SimplifiedResponse
      */
     public function filterResponse(SimplifiedResponse $response)
     {
@@ -37,5 +37,7 @@ class Headers extends ResponseFilter
             $response->headers,
             array_flip($this->blacklist)
         );
+
+        return $response;
     }
 }

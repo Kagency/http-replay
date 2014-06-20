@@ -42,12 +42,14 @@ class Dispatcher extends ResponseFilter
      * Filter response
      *
      * @param SimplifiedResponse $response
-     * @return void
+     * @return SimplifiedResponse
      */
     public function filterResponse(SimplifiedResponse $response)
     {
         foreach ($this->filters as $filter) {
             $filter->filterResponse($response);
         }
+
+        return $response;
     }
 }

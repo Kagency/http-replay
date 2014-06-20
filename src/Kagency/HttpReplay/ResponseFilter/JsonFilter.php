@@ -37,7 +37,7 @@ class JsonFilter extends ResponseFilter
      * Filter response
      *
      * @param SimplifiedResponse $response
-     * @return void
+     * @return SimplifiedResponse
      */
     public function filterResponse(SimplifiedResponse $response)
     {
@@ -49,5 +49,7 @@ class JsonFilter extends ResponseFilter
             $response->content,
             array_flip($this->blacklist)
         );
+
+        return $response;
     }
 }

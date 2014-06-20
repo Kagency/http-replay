@@ -11,7 +11,7 @@ class MultipartMixed extends ResponseFilter
      * Filter response
      *
      * @param SimplifiedResponse $response
-     * @return void
+     * @return SimplifiedResponse
      */
     public function filterResponse(SimplifiedResponse $response)
     {
@@ -37,5 +37,7 @@ class MultipartMixed extends ResponseFilter
             // @IDEA: split body into sub-responses and re-run the filters on
             // them?
         }
+
+        return $response;
     }
 }

@@ -11,7 +11,7 @@ class Json extends ResponseFilter
      * Filter response
      *
      * @param SimplifiedResponse $response
-     * @return void
+     * @return SimplifiedResponse
      */
     public function filterResponse(SimplifiedResponse $response)
     {
@@ -29,5 +29,7 @@ class Json extends ResponseFilter
 
             $response->content = $decoded;
         }
+
+        return $response;
     }
 }
