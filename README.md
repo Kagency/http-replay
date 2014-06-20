@@ -54,3 +54,51 @@ and filter, for example, certain JSON properties out of the response.
 This example assumes $app is some Symfony2 app, where the method runRequest()
 recieves a Request object and returns a Response object.
 
+## Response Filters
+
+A list of currently implemented response filters
+
+### Dispatcher
+
+Takes an array of response filters to apply to the responses. You usually want
+to use this one to be able to easily apply a set of filters.
+
+### Json
+
+Tries to parse JSON to make it easier to compare in tests. Also makes other
+response filters possible, like the JsonFilter filter.
+
+Takes no arguments.
+
+### JsonFilter
+
+Filters out a defined set of properties from a JSON response. Especially
+sensible, if your JSON response contains fields like dates or revisions.
+
+Receives a list of properties to remove as a constructor argument.
+
+### Headers
+
+Implements a blacklist for HTTP headers. Removes those headers from the
+response. This is especially useful to remove Date and Etag headers, for
+example.
+
+Receives a list of headers to remove as a constructor argument.
+
+### MultipartMixed
+
+Replaces the random boundary string in multipart/mixed responses, to make it
+possible to comapre them.
+
+Takes no arguments.
+
+### ConditionalPathRegexp
+
+Takes to arguments:
+
+* Regular expression to match the requested path
+* Aggregate filter
+
+Only applies the aggregate filter, if the regular expression matches the
+requested path.
+
