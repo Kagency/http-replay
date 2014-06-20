@@ -21,6 +21,13 @@ class MultipartMixed extends ResponseFilter
                 $response->headers['content-type'],
                 $match
             )) {
+
+            $response->headers['content-type'] = str_replace(
+                $match['boundary'],
+                '<boundary>',
+                $response->headers['content-type']
+            );
+
             $response->content = str_replace(
                 $match['boundary'],
                 '<boundary>',
