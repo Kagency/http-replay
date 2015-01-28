@@ -33,10 +33,10 @@ class MitmDump extends Reader
      * @param mixed \TNetstring_Decoder $decoder = null
      * @return void
      */
-    public function __construct(MessageHandler $messageHandler, \TNetstring_Decoder $decoder = null)
+    public function __construct(MessageHandler $messageHandler, \Phuedx\TNetstring\Codec $decoder = null)
     {
         $this->messageHandler = $messageHandler;
-        $this->decoder = $decoder ?: new \TNetstring_Decoder();
+        $this->decoder = $decoder ?: new \Phuedx\TNetstring\Codec();
     }
 
     /**

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c97a9a1fbcd3dae2607b31c1e9eec4ed",
+    "hash": "744216a65b52ff0f9968852e0a219c2a",
     "packages": [
         {
             "name": "kore/data-object",
@@ -46,12 +46,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phuedx/tnetstring.git",
-                "reference": "405fa37e9673bbeedf919a05a3a71a5ec3b12328"
+                "reference": "514f48e22fe8057faadcb0f4146043fe091b051a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phuedx/tnetstring/zipball/405fa37e9673bbeedf919a05a3a71a5ec3b12328",
-                "reference": "405fa37e9673bbeedf919a05a3a71a5ec3b12328",
+                "url": "https://api.github.com/repos/phuedx/tnetstring/zipball/514f48e22fe8057faadcb0f4146043fe091b051a",
+                "reference": "514f48e22fe8057faadcb0f4146043fe091b051a",
                 "shasum": ""
             },
             "require": {
@@ -63,8 +63,11 @@
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "TNetstring": "src/"
-                }
+                    "": "src/"
+                },
+                "files": [
+                    "tnetstring.php"
+                ]
             },
             "license": [
                 "MIT"
@@ -72,7 +75,7 @@
             "authors": [
                 {
                     "name": "Sam Smith",
-                    "email": "git@samsmith.io",
+                    "email": "yo@samsmith.io",
                     "homepage": "https://github.com/phuedx"
                 }
             ],
@@ -83,10 +86,10 @@
                 "tnetstring"
             ],
             "support": {
-                "source": "https://github.com/phuedx/tnetstring/tree/v1.0.1",
+                "source": "https://github.com/phuedx/tnetstring/tree/master",
                 "issues": "https://github.com/phuedx/tnetstring/issues"
             },
-            "time": "2014-06-06 09:45:25"
+            "time": "2014-12-10 19:55:58"
         },
         {
             "name": "psr/log",
@@ -1631,6 +1634,8 @@
         "sebastian/phpcpd": 0,
         "squizlabs/php_codesniffer": 0
     },
+    "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
 }
