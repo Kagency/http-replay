@@ -58,14 +58,14 @@ class MitmDump extends Reader
                             $interaction['request']['content']
                         )
                     ),
-                    $this->messageHandler->convertFromResponse(
+                    $interaction['response'] ? $this->messageHandler->convertFromResponse(
                         new SimplifiedResponse(
                             $interaction['request']['path'],
                             $interaction['response']['code'],
                             $this->mapHeaders($interaction['response']['headers']),
                             $interaction['response']['content']
                         )
-                    )
+                    ) : null
                 );
             },
             $this->decoder->decode(file_get_contents($file))

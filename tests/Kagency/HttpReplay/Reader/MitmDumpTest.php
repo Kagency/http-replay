@@ -28,6 +28,27 @@ class MitmDumpTest extends \PHPUnit_Framework_TestCase
                     new Interaction('request', 'response'),
                 ),
             ),
+            array(
+                __DIR__ . '/_fixtures/replication_02.tns',
+                array(
+                    new Interaction('request', 'response'),
+                    new Interaction('request', 'response'),
+                    new Interaction('request', 'response'),
+                    new Interaction('request', 'response'),
+                    new Interaction('request', 'response'),
+                    new Interaction('request', 'response'),
+                    new Interaction('request', 'response'),
+                    new Interaction('request', 'response'),
+                    new Interaction('request', 'response'),
+                    new Interaction('request', 'response'),
+                    new Interaction('request', 'response'),
+                    new Interaction('request', 'response'),
+                    new Interaction('request', 'response'),
+                    new Interaction('request', 'response'),
+                    new Interaction('request', 'response'),
+                    new Interaction('request', null),
+                ),
+            ),
         );
     }
 
